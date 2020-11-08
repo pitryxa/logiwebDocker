@@ -168,7 +168,7 @@
                     </security>
                 </datasource>
                 <datasource jndi-name="java:/jdbc/logiweb" pool-name="logiweb">
-                    <connection-url>jdbc:postgresql://localhost:5432/logiweb?charSet=UTF8</connection-url>
+                    <connection-url>jdbc:postgresql://postgres:5432/logiweb?charSet=UTF8</connection-url>
                     <driver-class>org.postgresql.Driver</driver-class>
                     <driver>postgresql-42.2.0.jar</driver>
                     <security>
