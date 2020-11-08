@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: logiweb
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./logiweb/src/main/resources/initDB.sql:/docker-entrypoint-initdb.d/initDB.sql
+    networks: 
+      - logiweb 
+      
+  logiweb:
+    container_name: logiweb_main
+    build:
+       context: .
+       dockerfile: Dockerfile
+    restart: always
+    image: logiweb_main:latest
+    ports:
+        - "58080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - logiweb   
+
+networks: 
+  logiweb:
