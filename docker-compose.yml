@@ -24,7 +24,7 @@ services:
     restart: always
     image: logiweb_main:latest
     ports:
-        - "8080:8080"
+        - "58080:8080"
     depends_on:
       - postgres
     networks:
